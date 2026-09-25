@@ -89,7 +89,7 @@
       <div class="stats">
         <div><p class="num">04</p><p class="lbl"><span data-pt>projetos de pesquisa<br>na UFG</span><span data-en>research projects<br>at UFG</span></p></div>
         <div><p class="num">02</p><p class="lbl"><span data-pt>artigos · 1 aceito<br>na ACM MM, 1 em avaliação</span><span data-en>papers · 1 accepted<br>at ACM MM, 1 under review</span></p></div>
-        <div><p class="num">02</p><p class="lbl"><span data-pt>repositórios<br>open source</span><span data-en>open-source<br>repositories</span></p></div>
+        <div><p class="num">03</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
       </div>
 
       <div class="tiles">
@@ -116,6 +116,13 @@
           <div>
             <p class="n-title"><span data-pt>ACM Multimedia 2026, Rio de Janeiro</span><span data-en>ACM Multimedia 2026, Rio de Janeiro</span></p>
             <p><span data-pt>Apresento o artigo CGReplay++ como autor apresentador (10 a 14 de novembro).</span><span data-en>Presenting the CGReplay++ paper as presenting author (Nov 10–14).</span></p>
+          </div>
+        </li>
+        <li class="reveal">
+          <time class="mono">2026.09</time>
+          <div>
+            <p class="n-title"><span data-pt>Lancei a Congestion Control Arena</span><span data-en>Launched Congestion Control Arena</span></p>
+            <p><span data-pt>Redes neurais aprendem controle de congestionamento por neuroevolução, ao vivo no navegador. <a class="inline" href="https://hugo-guigo.github.io/congestion-arena">Abrir a demo →</a></span><span data-en>Neural networks learn congestion control through neuroevolution, live in the browser. <a class="inline" href="https://hugo-guigo.github.io/congestion-arena">Open the demo →</a></span></p>
           </div>
         </li>
         <li class="reveal">
@@ -148,6 +155,35 @@
       <h2 class="giant sm"><span class="l1" data-pt>Trabalhos</span><span class="l1" data-en>Selected</span><span class="l2" data-pt>selecionados</span><span class="l2" data-en>work</span></h2>
 
       <div class="works">
+
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">rate vs capacity</text>
+              <path d="M16 62 H200 V112 H384" class="v-cap"/>
+              <path d="M16 170 C60 168 90 120 120 78 C140 66 170 64 196 66 C204 90 212 112 230 116 C280 118 330 117 384 117" class="v-rate"/>
+              <text x="210" y="48" class="v-small">capacity drop</text>
+              <text x="16" y="184" class="v-small">gen 1 → gen 60 · queue ≈ 1 ms</text>
+              <g class="v-mini">
+                <circle cx="300" cy="150" r="4"/><circle cx="300" cy="166" r="4"/><circle cx="300" cy="182" r="4"/>
+                <circle cx="340" cy="158" r="4"/><circle cx="340" cy="174" r="4"/>
+                <circle cx="378" cy="166" r="5" class="out"/>
+                <path d="M300 150 L340 158 M300 150 L340 174 M300 166 L340 158 M300 166 L340 174 M300 182 L340 158 M300 182 L340 174 M340 158 L378 166 M340 174 L378 166"/>
+              </g>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2026 · <span data-pt>projeto pessoal</span><span data-en>personal project</span></p>
+            <h3>Congestion Control Arena</h3>
+            <p class="badge lime mono"><span data-pt>demo ao vivo</span><span data-en>live demo</span></p>
+            <p><span data-pt>Uma população de redes neurais pequenas aprende controle de congestionamento por neuroevolução, ao vivo no navegador, sem saber nada de TCP. Escrevi o simulador do link gargalo, o algoritmo genético e um placar contra baselines estilo Reno e Vegas. Em um buffer de 5 BDP que não aparece no treino, o campeão mantém 1,2 ms de fila contra 113 ms do AIMD. O mesmo placar mostra os limites: ele é injusto com um segundo fluxo (Jain 0,58).</span><span data-en>A population of tiny neural networks learns congestion control through neuroevolution, live in the browser, with no knowledge of TCP. I wrote the bottleneck simulator, the genetic algorithm and a scoreboard against Reno-like and Vegas-like baselines. On a 5 BDP buffer never seen in training, the champion holds 1.2 ms of queueing delay versus 113 ms for AIMD. The same scoreboard shows its limits: it is unfair to a second flow (Jain 0.58).</span></p>
+            <ul class="tags mono"><li>JavaScript</li><li>neuroevolution</li><li>Canvas</li><li>simulation</li><li>tests</li></ul>
+            <p class="w-links">
+              <a class="pill" href="https://hugo-guigo.github.io/congestion-arena"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Demo</a>
+              <a class="pill" href="https://github.com/hugo-guigo/congestion-arena"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+            </p>
+          </div>
+        </article>
 
         <!-- CEIA: só descrição geral, sem resultados -->
         <article class="work reveal">

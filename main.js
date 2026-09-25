@@ -40,8 +40,8 @@
 
   /* ---------- Linha de terminal digitando ---------- */
   var phrases = {
-    pt: ["inferência em edge sob restrição", "benchmarks reprodutíveis", "percepção + sVLM em tempo real", "RTP sobre QUIC para cloud gaming", "medir antes de otimizar"],
-    en: ["edge inference under constraints", "reproducible benchmarks", "real-time perception + sVLM", "RTP over QUIC for cloud gaming", "measure before you optimize"]
+    pt: ["neuroevolução para controle de congestionamento", "inferência em edge sob restrição","benchmarks reprodutíveis", "percepção + sVLM em tempo real", "RTP sobre QUIC para cloud gaming", "medir antes de otimizar"],
+    en: ["neuroevolution for congestion control", "edge inference under constraints","reproducible benchmarks", "real-time perception + sVLM", "RTP over QUIC for cloud gaming", "measure before you optimize"]
   };
   var typed = document.getElementById("typed");
   var tTimer = null;
