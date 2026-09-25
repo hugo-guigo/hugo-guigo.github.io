@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hugo Guilherme de Assis Paula</title>
+<meta name="description" content="Hugo Guilherme de Assis Paula. Engenheiro de ML aplicado e sistemas: inferência em edge, medição e benchmarking.">
+<meta property="og:title" content="Hugo Guilherme de Assis Paula">
+<meta property="og:description" content="Applied ML and systems engineer: edge inference, measurement and benchmarking.">
+<meta name="theme-color" content="#0b0c0e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+  // Idioma antes do primeiro paint, para não piscar o texto errado.
+  (function () {
+    var lang = null;
+    try { lang = localStorage.getItem("lang"); } catch (e) {}
+    if (!lang) lang = (navigator.language || "pt").toLowerCase().indexOf("pt") === 0 ? "pt-BR" : "en";
+    document.documentElement.lang = lang;
+    document.documentElement.classList.add("js");
+  })();
+</script>
+</head>
+<body>
+
+<!-- Tela de entrada: saudação nos meus três idiomas -->
+<div id="loader" aria-hidden="true">
+  <p class="greet"><span class="dot"></span><span id="greet-word">Olá</span></p>
+</div>
+
+<canvas id="net" aria-hidden="true"></canvas>
+
+<a class="skip" href="#main"><span data-pt>Pular para o conteúdo</span><span data-en>Skip to content</span></a>
+
+<!-- Navegação em pílula -->
+<nav class="dock" aria-label="Navegação">
+  <a href="#top" title="Início" aria-label="Início"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg></a>
+  <a href="#news" title="News" aria-label="News"><svg viewBox="0 0 24 24"><path d="M4 5h13v14H6a2 2 0 0 1-2-2zM17 9h3v8a2 2 0 0 1-2 2M8 9h5M8 13h5"/></svg></a>
+  <a href="#work" title="Work" aria-label="Work"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4zM9 7V5h6v2"/></svg></a>
+  <a href="#publications" title="Publications" aria-label="Publications"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h7"/></svg></a>
+  <a href="#skills" title="Skills" aria-label="Skills"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/></svg></a>
+  <a href="#contact" title="Contato" aria-label="Contato"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></a>
+  <span class="sep"></span>
+  <button type="button" id="lang-toggle" aria-label="Mudar idioma / Switch language"><span data-pt>EN</span><span data-en>PT</span></button>
+</nav>
+
+<div class="shell" id="top">
+
+  <!-- Card de perfil fixo (Sawad) -->
+  <aside class="profile">
+    <div class="profile-card">
+      <svg class="orbit" viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="96"/></svg>
+      <div class="avatar">
+        <img src="assets/hugo.jpg" alt="Foto de Hugo Guilherme" onerror="this.remove()">
+        <span class="initials">HG</span>
+      </div>
+      <h2 class="p-name">Hugo Guilherme</h2>
+      <p class="p-role mono"><span data-pt>ML aplicado · Sistemas · Edge</span><span data-en>Applied ML · Systems · Edge</span></p>
+      <p class="p-status"><span class="pulse"></span><span data-pt>Aberto a vagas júnior</span><span data-en>Open to junior roles</span></p>
+      <p class="p-loc">
+        <span data-pt>Goiânia → São Paulo (fim de 2026)<br>SP presencial/híbrido ou remoto</span>
+        <span data-en>Goiânia → São Paulo (late 2026)<br>On-site/hybrid in SP or remote</span>
+      </p>
+      <div class="p-social">
+        <a href="https://github.com/hugo-guigo" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a>
+        <a href="https://linkedin.com/in/hugo-guigo" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4 9h4v11H4zM6 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM10 9h4v1.6c.6-1 1.9-1.9 3.6-1.9 3.2 0 3.4 2.2 3.4 4.8V20h-4v-5.6c0-1.4 0-2.8-1.8-2.8S14 13 14 14.4V20h-4z"/></svg></a>
+        <a href="mailto:hugo.guilherme.paula@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></a>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main" class="content">
+
+    <!-- HERO -->
+    <section class="hero">
+      <p class="chip mono"><span class="dot"></span><span data-pt>Systems check · todos os sensores ativos</span><span data-en>Systems check · all sensors online</span></p>
+      <h1 class="giant">
+        <span class="l1" data-pt>ML aplicado</span><span class="l1" data-en>Applied ML</span>
+        <span class="l2" data-pt>&amp; sistemas</span><span class="l2" data-en>&amp; systems</span>
+      </h1>
+      <p class="typer mono" aria-live="off">&gt; <span id="typed"></span><span class="caret">▍</span></p>
+      <p class="lede">
+        <span data-pt>Sou formando em Ciência da Computação na UFG. Construo e meço sistemas de ML que rodam sob restrição: inferência em hardware embarcado, pipelines de rede e avaliação reprodutível. Cada resultado que entrego vem com o benchmark que permite reproduzi-lo.</span>
+        <span data-en>I'm finishing my Computer Science degree at UFG (Brazil). I build and measure ML systems that run under constraints: inference on embedded hardware, networking pipelines and reproducible evaluation. Every result I ship comes with the benchmark that lets you reproduce it.</span>
+      </p>
+
+      <div class="stats">
+        <div><p class="num">04</p><p class="lbl"><span data-pt>projetos de pesquisa<br>na UFG</span><span data-en>research projects<br>at UFG</span></p></div>
+        <div><p class="num">02</p><p class="lbl"><span data-pt>artigos · 1 aceito<br>na ACM MM, 1 em avaliação</span><span data-en>papers · 1 accepted<br>at ACM MM, 1 under review</span></p></div>
+        <div><p class="num">02</p><p class="lbl"><span data-pt>repositórios<br>open source</span><span data-en>open-source<br>repositories</span></p></div>
+      </div>
+
+      <div class="tiles">
+        <a class="tile orange" href="#work">
+          <svg class="t-ico" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4M9 9h6v6H9z"/></svg>
+          <p><span data-pt>Inferência em edge<br>sob restrição</span><span data-en>Edge inference<br>under constraints</span></p>
+          <span class="t-arrow">→</span>
+        </a>
+        <a class="tile lime" href="#work">
+          <svg class="t-ico" viewBox="0 0 24 24"><path d="M3 20h18M6 16v-5M11 16V6M16 16v-8M21 16v-3"/></svg>
+          <p><span data-pt>Medição e benchmarking<br>reprodutível</span><span data-en>Reproducible measurement<br>and benchmarking</span></p>
+          <span class="t-arrow">→</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section id="news" class="sec">
+      <p class="kicker mono">TX-01 · <span data-pt>sinal recebido</span><span data-en>signal received</span></p>
+      <h2 class="giant sm"><span class="l1" data-pt>Últimas</span><span class="l1" data-en>Latest</span><span class="l2" data-pt>novidades</span><span class="l2" data-en>news</span></h2>
+      <ol class="news">
+        <li class="reveal">
+          <time class="mono">2026.11</time>
+          <div>
+            <p class="n-title"><span data-pt>ACM Multimedia 2026, Rio de Janeiro</span><span data-en>ACM Multimedia 2026, Rio de Janeiro</span></p>
+            <p><span data-pt>Apresento o artigo CGReplay++ como autor apresentador (10 a 14 de novembro).</span><span data-en>Presenting the CGReplay++ paper as presenting author (Nov 10–14).</span></p>
+          </div>
+        </li>
+        <li class="reveal">
+          <time class="mono">2026</time>
+          <div>
+            <p class="n-title"><span data-pt>Artigo submetido</span><span data-en>Paper submitted</span></p>
+            <p><span data-pt>Agentes de linguagem com percepção facial em tempo real sob contenção de acelerador. Em avaliação.</span><span data-en>Real-time face-aware language agents under accelerator contention. Under review.</span></p>
+          </div>
+        </li>
+        <li class="reveal">
+          <time class="mono">2026</time>
+          <div>
+            <p class="n-title"><span data-pt>Aceito no Conpeex 2026</span><span data-en>Accepted at Conpeex 2026</span></p>
+            <p><span data-pt>Trabalho sobre o léxico de misoginia em PT-BR. Apresentação a realizar.</span><span data-en>Work on the PT-BR misogyny lexicon. Presentation upcoming.</span></p>
+          </div>
+        </li>
+        <li class="reveal">
+          <time class="mono">2026.07</time>
+          <div>
+            <p class="n-title"><span data-pt>Palestra no 1º Encontro de Sociologia da IA</span><span data-en>Talk at the 1st Meeting on the Sociology of AI</span></p>
+            <p><span data-pt>Sessão Dirigida na FCS/UFG sobre o léxico de misoginia.</span><span data-en>Directed session at FCS/UFG on the misogyny lexicon.</span></p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="sec">
+      <p class="kicker mono">TX-02 · <span data-pt>cargas úteis</span><span data-en>payloads</span></p>
+      <h2 class="giant sm"><span class="l1" data-pt>Trabalhos</span><span class="l1" data-en>Selected</span><span class="l2" data-pt>selecionados</span><span class="l2" data-en>work</span></h2>
+
+      <div class="works">
+
+        <!-- CEIA: só descrição geral, sem resultados -->
+        <article class="work reveal">
+          <figure class="viz viz-ceia" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">GPU · <tspan class="v-dim">shared accelerator</tspan></text>
+              <text x="16" y="66" class="v-small">perception</text>
+              <g class="v-perc">
+                <rect x="100" y="54" width="14" height="18"/><rect x="122" y="54" width="14" height="18"/><rect x="144" y="54" width="14" height="18"/><rect x="166" y="54" width="14" height="18"/><rect x="188" y="54" width="14" height="18"/><rect x="210" y="54" width="14" height="18"/><rect x="232" y="54" width="14" height="18"/><rect x="254" y="54" width="14" height="18"/><rect x="276" y="54" width="14" height="18"/><rect x="298" y="54" width="14" height="18"/><rect x="320" y="54" width="14" height="18"/><rect x="342" y="54" width="14" height="18"/><rect x="364" y="54" width="14" height="18"/>
+              </g>
+              <text x="16" y="112" class="v-small">sVLM gen</text>
+              <g class="v-gen">
+                <rect x="100" y="98" width="70" height="22" rx="3"/><rect x="230" y="98" width="70" height="22" rx="3"/>
+              </g>
+              <line x1="100" y1="150" x2="380" y2="150" class="v-axis"/>
+              <text x="100" y="170" class="v-small">t →</text>
+              <line class="v-scan" x1="100" y1="44" x2="100" y2="150"/>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2026 · CEIA / UFG</p>
+            <h3><span data-pt>Agente incorporado em tempo real em hardware embarcado</span><span data-en>Real-time embodied agent on embedded hardware</span></h3>
+            <p class="badge orange mono"><span data-pt>projeto com empresa parceira</span><span data-en>industry-partnered project</span></p>
+            <p><span data-pt>Construí um agente que combina percepção facial contínua (detecção, identificação e expressão) com geração periódica de um modelo pequeno de visão e linguagem (sVLM), no mesmo acelerador embarcado. Caracterizei a disputa de GPU entre percepção e geração e entreguei um harness de benchmark reprodutível.</span><span data-en>I built an agent that combines continuous face perception (detection, identification and expression) with periodic generation from a small vision-language model (sVLM), on the same embedded accelerator. I characterized GPU contention between perception and generation and delivered a reproducible benchmark harness.</span></p>
+            <ul class="tags mono"><li>Python</li><li>PyTorch</li><li>sVLM</li><li>Jetson</li><li>benchmarking</li></ul>
+          </div>
+        </article>
+
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">transports</text>
+              <g class="v-stack">
+                <rect x="16" y="42" width="170" height="26" rx="4"/><text x="28" y="60">UDP / RTP</text>
+                <rect x="16" y="74" width="170" height="26" rx="4"/><text x="28" y="92">QUIC</text>
+                <rect x="16" y="106" width="170" height="26" rx="4"/><text x="28" y="124">SCReAM</text>
+                <rect x="16" y="138" width="170" height="26" rx="4" class="hl"/><text x="28" y="156" class="hl-t">RoQ · RTP over QUIC</text>
+              </g>
+              <text x="218" y="28" class="v-lbl">median FCT</text>
+              <text x="218" y="66" class="v-small">TCP</text>
+              <rect x="268" y="54" width="112" height="16" class="v-bar-a"/>
+              <text x="218" y="100" class="v-small">DCTCP</text>
+              <rect x="268" y="88" width="93" height="16" class="v-bar-b"/>
+              <text x="368" y="101" class="v-num">−17%</text>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2026 · dcomp-leris / UFG</p>
+            <h3>CGReplay / CGSynth</h3>
+            <p class="badge lime mono">ACM Multimedia 2026</p>
+            <p><span data-pt>Implementei o RoQ (RTP sobre QUIC) como quarto transporte de um pipeline de mídia para cloud gaming, ao lado de QUIC, SCReAM e RTP, e construí uma GUI de métricas de qualidade (VMAF, SSIM). No Netbench, o DCTCP reduziu o FCT mediano em 17% frente ao TCP.</span><span data-en>I implemented RoQ (RTP over QUIC) as the fourth transport in a cloud gaming media pipeline, alongside QUIC, SCReAM and RTP, and built a quality metrics GUI (VMAF, SSIM). On Netbench, DCTCP cut median FCT by 17% versus TCP.</span></p>
+            <ul class="tags mono"><li>QUIC</li><li>RTP</li><li>Mininet</li><li>GStreamer</li><li>VMAF</li></ul>
+            <p class="w-links"><a class="pill" href="https://github.com/dcomp-leris/CGReplay"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
+          </div>
+        </article>
+
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">F1 · test set</text>
+              <text x="16" y="62" class="v-small">baseline</text>
+              <rect x="100" y="50" width="219" height="16" class="v-bar-a"/><text x="326" y="63" class="v-num-d">0.730</text>
+              <text x="16" y="96" class="v-small">best</text>
+              <rect x="100" y="84" width="224" height="16" class="v-bar-b"/><text x="331" y="97" class="v-num">0.748</text>
+              <text x="16" y="130" class="v-small">leaked</text>
+              <rect x="100" y="118" width="261" height="16" class="v-bar-x"/><line x1="100" y1="126" x2="361" y2="126" class="v-strike"/><text x="368" y="131" class="v-num-x">0.87</text>
+              <text x="100" y="168" class="v-small">74,338 → 35,791 docs · 533 terms</text>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2025–2026 · <span data-pt>IC, Instituto de Informática / UFG</span><span data-en>Undergrad research, UFG</span></p>
+            <h3><span data-pt>Léxico de misoginia em PT-BR</span><span data-en>PT-BR misogyny lexicon</span></h3>
+            <p class="badge lime mono">NLP · open source</p>
+            <p><span data-pt>Unifiquei 3 corpora anotados e dedupliquei de 74.338 para 35.791 documentos. Construí um léxico de 533 termos (TF-IDF + PMI) e um filtro de ancoragem de gênero que reduziu os termos positivos de 267 para 111. Melhor F1 de 0,748 contra 0,730 do baseline. No caminho, achei e corrigi um vazamento de dados que inflava o F1 para 0,87.</span><span data-en>I merged 3 annotated corpora and deduplicated them from 74,338 to 35,791 documents. I built a 533-term lexicon (TF-IDF + PMI) and a gender-anchoring filter that cut positive terms from 267 to 111. Best F1 was 0.748 against a 0.730 baseline. Along the way, I found and fixed a data leak that inflated F1 to 0.87.</span></p>
+            <ul class="tags mono"><li>Python</li><li>scikit-learn</li><li>spaCy</li><li>BERTimbau</li></ul>
+            <p class="w-links"><a class="pill" href="https://github.com/hugo-guigo/lexico-misoginia-ptbr"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
+          </div>
+        </article>
+
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">testbed</text>
+              <g class="v-node"><rect x="16" y="46" width="110" height="34" rx="6"/><text x="28" y="68">5G SA callbox</text></g>
+              <g class="v-node"><rect x="16" y="104" width="110" height="34" rx="6"/><text x="28" y="126">Wi-Fi 6E AP</text></g>
+              <g class="v-node hl"><rect x="200" y="75" width="96" height="34" rx="6"/><text x="214" y="97">VR 4K · PC</text></g>
+              <path class="v-link" d="M126 63 C160 63 170 92 200 92"/>
+              <path class="v-link" d="M126 121 C160 121 170 92 200 92"/>
+              <path class="v-link dash" d="M296 92 L330 92"/>
+              <text x="336" y="88" class="v-small">ADB</text><text x="336" y="102" class="v-small">metrics</text>
+              <text x="16" y="170" class="v-small">10,719 frames · 29.1 Mbps mean</text>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2024–2025 · <span data-pt>IC, bolsa FAPESP / UFG</span><span data-en>Undergrad research, FAPESP grant / UFG</span></p>
+            <h3><span data-pt>Plataforma de métricas 5G vs Wi-Fi 6E para vídeo e VR</span><span data-en>5G vs Wi-Fi 6E metrics platform for video and VR</span></h3>
+            <p class="badge lime mono">testbed · open source</p>
+            <p><span data-pt>Montei um testbed com 5G Standalone (Amarisoft Callbox) e Wi-Fi 6E, com PC e óculos VR 4K. Coletei métricas de rede e de dispositivo ao mesmo tempo via ADB Shell e analisei o fluxo RTP/UDP no Wireshark: 10.719 frames, 29,1 Mbps de throughput médio.</span><span data-en>I set up a testbed with 5G Standalone (Amarisoft Callbox) and Wi-Fi 6E, using a PC and a 4K VR headset. I collected network and device metrics simultaneously over ADB Shell and analyzed the RTP/UDP stream in Wireshark: 10,719 frames, 29.1 Mbps mean throughput.</span></p>
+            <ul class="tags mono"><li>5G SA</li><li>Wi-Fi 6E</li><li>ADB</li><li>Wireshark</li><li>Python</li></ul>
+            <p class="w-links"><a class="pill" href="https://github.com/hugo-guigo/5g-wifi6e-vr-metrics-platform"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="sec">
+      <p class="kicker mono">TX-03 · <span data-pt>transmissões</span><span data-en>transmissions</span></p>
+      <h2 class="giant sm"><span class="l1" data-pt>Publicações</span><span class="l1" data-en>Papers</span><span class="l2" data-pt>&amp; palestras</span><span class="l2" data-en>&amp; talks</span></h2>
+      <div class="pubs">
+        <article class="pub reveal">
+          <p class="p-venue mono"><span class="v-tag lime">ACM MM 2026</span><span class="v-state"><span data-pt>aceito · autor apresentador</span><span data-en>accepted · presenting author</span></span></p>
+          <h3>CGReplay++: Replaying Cloud Gaming Sessions to Evaluate UDP, QUIC, and SCReAM</h3>
+          <p class="p-sub"><span data-pt>ACM Multimedia 2026, Rio de Janeiro, 10 a 14 de novembro</span><span data-en>ACM Multimedia 2026, Rio de Janeiro, Nov 10–14</span></p>
+        </article>
+        <article class="pub reveal">
+          <p class="p-venue mono"><span class="v-tag"><span data-pt>em avaliação</span><span data-en>under review</span></span></p>
+          <h3>Real-Time Face-Aware Language Agents Under Shared-Accelerator Contention</h3>
+          <p class="p-sub"><span data-pt>Submetido em 2026</span><span data-en>Submitted in 2026</span></p>
+        </article>
+        <article class="pub reveal">
+          <p class="p-venue mono"><span class="v-tag orange"><span data-pt>palestra</span><span data-en>talk</span></span><span class="v-state">jul 2026</span></p>
+          <h3><span data-pt>Léxico de misoginia em PT-BR</span><span data-en>PT-BR misogyny lexicon</span></h3>
+          <p class="p-sub"><span data-pt>Sessão Dirigida, 1º Encontro de Sociologia da IA, FCS/UFG</span><span data-en>Directed session, 1st Meeting on the Sociology of AI, FCS/UFG</span></p>
+        </article>
+        <article class="pub reveal">
+          <p class="p-venue mono"><span class="v-tag"><span data-pt>aceito</span><span data-en>accepted</span></span><span class="v-state"><span data-pt>apresentação a realizar</span><span data-en>presentation upcoming</span></span></p>
+          <h3>Conpeex 2026</h3>
+          <p class="p-sub"><span data-pt>Léxico de misoginia em PT-BR</span><span data-en>PT-BR misogyny lexicon</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRAJECTORY -->
+    <section id="trajectory" class="sec">
+      <p class="kicker mono">TX-04 · <span data-pt>telemetria</span><span data-en>telemetry</span></p>
+      <h2 class="giant sm"><span class="l1" data-pt>Trajetória</span><span class="l1" data-en>Trajectory</span><span class="l2" data-pt>na UFG</span><span class="l2" data-en>at UFG</span></h2>
+      <ol class="timeline">
+        <li class="reveal">
+          <div class="t-head"><h3><span data-pt>Pesquisador de Machine Learning</span><span data-en>Machine Learning Researcher</span></h3><span class="mono t-date">2026</span></div>
+          <p class="t-org">CEIA · <span data-pt>Centro de Excelência em IA, UFG</span><span data-en>Center of Excellence in AI, UFG</span></p>
+          <p><span data-pt>Projeto de pesquisa com empresa parceira: agentes em tempo real em hardware embarcado.</span><span data-en>Industry-partnered research project: real-time agents on embedded hardware.</span></p>
+        </li>
+        <li class="reveal">
+          <div class="t-head"><h3><span data-pt>Pesquisa em redes para cloud gaming</span><span data-en>Networking research for cloud gaming</span></h3><span class="mono t-date">2026</span></div>
+          <p class="t-org">dcomp-leris · UFG</p>
+          <p><span data-pt>Transportes de mídia, controle de congestionamento e métricas de qualidade de vídeo.</span><span data-en>Media transports, congestion control and video quality metrics.</span></p>
+        </li>
+        <li class="reveal">
+          <div class="t-head"><h3><span data-pt>Iniciação Científica em PLN</span><span data-en>Undergraduate research in NLP</span></h3><span class="mono t-date"><span data-pt>set 2025 – ago 2026</span><span data-en>Sep 2025 – Aug 2026</span></span></div>
+          <p class="t-org"><span data-pt>Instituto de Informática, UFG · Orientadora: Profa. Dra. Deborah S. A. Fernandes</span><span data-en>Institute of Informatics, UFG · Advisor: Prof. Deborah S. A. Fernandes</span></p>
+          <p><span data-pt>Léxico e classificadores para detectar misoginia em português.</span><span data-en>Lexicon and classifiers for detecting misogyny in Portuguese.</span></p>
+        </li>
+        <li class="reveal">
+          <div class="t-head"><h3><span data-pt>Iniciação Científica em redes móveis</span><span data-en>Undergraduate research in mobile networks</span></h3><span class="mono t-date">2024 – 2025</span></div>
+          <p class="t-org"><span data-pt>UFG · bolsa FAPESP (2024/13782-1)</span><span data-en>UFG · FAPESP grant (2024/13782-1)</span></p>
+          <p><span data-pt>Testbed 5G vs Wi-Fi 6E para vídeo e realidade virtual.</span><span data-en>5G vs Wi-Fi 6E testbed for video and virtual reality.</span></p>
+        </li>
+        <li class="reveal">
+          <div class="t-head"><h3><span data-pt>Bacharelado em Ciência da Computação</span><span data-en>B.Sc. in Computer Science</span></h3><span class="mono t-date"><span data-pt>conclusão prevista dez/2026</span><span data-en>expected Dec 2026</span></span></div>
+          <p class="t-org">Universidade Federal de Goiás (UFG)</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="sec">
+      <p class="kicker mono">TX-05 · <span data-pt>instrumentos a bordo</span><span data-en>onboard instruments</span></p>
+      <h2 class="giant sm"><span class="l1" data-pt>Ferramentas</span><span class="l1" data-en>Tools</span><span class="l2" data-pt>que uso</span><span class="l2" data-en>I use</span></h2>
+      <div class="skills-wrap">
+        <div class="sphere-box">
+          <div id="sphere" class="sphere" role="img" aria-label="Esfera de ferramentas / Tools sphere"></div>
+          <p class="hint mono"><span data-pt>arraste para girar</span><span data-en>drag to spin</span></p>
+        </div>
+        <dl class="skill-list">
+          <div><dt class="mono"><span data-pt>Linguagens</span><span data-en>Languages</span></dt><dd>Python, C/C++, C#, Java, JavaScript, Bash, LaTeX</dd></div>
+          <div><dt class="mono">ML</dt><dd>PyTorch, ONNX Runtime, scikit-learn, spaCy, OpenCV, Transformers</dd></div>
+          <div><dt class="mono">Edge</dt><dd>Jetson, DGX Spark, Raspberry Pi, Coral Edge TPU</dd></div>
+          <div><dt class="mono"><span data-pt>Redes</span><span data-en>Networking</span></dt><dd>Linux, Mininet, QUIC, RTP/UDP, GStreamer, FFmpeg, Wireshark, 5G SA, Wi-Fi 6E</dd></div>
+          <div><dt class="mono"><span data-pt>Avaliação</span><span data-en>Evaluation</span></dt><dd><span data-pt>benchmarking reprodutível, F1/precisão/recall, bootstrap e intervalos de confiança</span><span data-en>reproducible benchmarking, F1/precision/recall, bootstrap and confidence intervals</span></dd></div>
+          <div><dt class="mono"><span data-pt>Idiomas</span><span data-en>Spoken</span></dt><dd><span data-pt>Português (nativo), Inglês (fluente), Francês (básico)</span><span data-en>Portuguese (native), English (fluent), French (basic)</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="sec contact">
+      <p class="kicker mono">TX-06 · <span data-pt>canal aberto</span><span data-en>channel open</span></p>
+      <h2 class="giant"><span class="l1" data-pt>Vamos</span><span class="l1" data-en>Let's</span><span class="l2" data-pt>conversar</span><span class="l2" data-en>talk</span></h2>
+      <p class="lede">
+        <span data-pt>Procuro minha primeira vaga júnior em ML, IA aplicada ou sistemas. Se o seu time mede antes de otimizar, eu quero ouvir sobre ele.</span>
+        <span data-en>I'm looking for my first junior role in ML, applied AI or systems. If your team measures before it optimizes, I want to hear about it.</span>
+      </p>
+      <div class="c-actions">
+        <a class="btn primary" href="mailto:hugo.guilherme.paula@gmail.com">hugo.guilherme.paula@gmail.com</a>
+        <button type="button" class="btn" id="copy-mail"><span data-pt>Copiar email</span><span data-en>Copy email</span></button>
+        <a class="btn ghost" href="https://linkedin.com/in/hugo-guigo">LinkedIn ↗</a>
+        <a class="btn ghost" href="https://github.com/hugo-guigo">GitHub ↗</a>
+      </div>
+    </section>
+
+    <footer class="footer mono">
+      <p>© 2026 Hugo Guilherme de Assis Paula</p>
+      <p><span data-pt>HTML, CSS e JavaScript puros · GitHub Pages</span><span data-en>Plain HTML, CSS and JavaScript · GitHub Pages</span></p>
+    </footer>
+
+  </main>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
