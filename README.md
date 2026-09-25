@@ -1,15 +1,10 @@
 # hugo-guigo.github.io
 
-Portfólio pessoal de Hugo Guilherme de Assis Paula: engenharia de ML aplicada e sistemas.
+**Site no ar: https://hugo-guigo.github.io**
 
-Site estático em HTML, CSS e JavaScript puros, bilíngue PT/EN, sem etapa de build. O GitHub Pages serve os arquivos da branch `main` direto.
+Portfólio pessoal de Hugo Guilherme de Assis Paula: engenharia de ML aplicada e sistemas. Bilíngue PT/EN.
 
-## Rodar localmente
-
-```bash
-python -m http.server 8000
-# abra http://localhost:8000
-```
+O site é publicado automaticamente pelo GitHub Pages a cada push na branch `main`. Não precisa instalar nem rodar nada para visitar.
 
 ## Estrutura
 
