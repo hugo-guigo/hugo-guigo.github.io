@@ -89,7 +89,7 @@
       <div class="stats">
         <div><p class="num">04</p><p class="lbl"><span data-pt>projetos de pesquisa<br>na UFG</span><span data-en>research projects<br>at UFG</span></p></div>
         <div><p class="num">02</p><p class="lbl"><span data-pt>artigos · 1 aceito<br>na ACM MM, 1 em avaliação</span><span data-en>papers · 1 accepted<br>at ACM MM, 1 under review</span></p></div>
-        <div><p class="num">03</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
+        <div><p class="num">04</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
       </div>
 
       <div class="tiles">
@@ -116,6 +116,13 @@
           <div>
             <p class="n-title"><span data-pt>ACM Multimedia 2026, Rio de Janeiro</span><span data-en>ACM Multimedia 2026, Rio de Janeiro</span></p>
             <p><span data-pt>Apresento o artigo CGReplay++ como autor apresentador (10 a 14 de novembro).</span><span data-en>Presenting the CGReplay++ paper as presenting author (Nov 10–14).</span></p>
+          </div>
+        </li>
+        <li class="reveal">
+          <time class="mono">2026.09</time>
+          <div>
+            <p class="n-title"><span data-pt>Lancei o Misogyny Lens PT-BR</span><span data-en>Launched Misogyny Lens PT-BR</span></p>
+            <p><span data-pt>BERTimbau com fine-tuning detecta traços de misoginia e roda no navegador, com explicação por palavra. <a class="inline" href="https://hugo-guigo.github.io/misogyny-lens-ptbr">Abrir a demo →</a></span><span data-en>A fine-tuned BERTimbau flags misogyny traits and runs in the browser, with per-word explanations. <a class="inline" href="https://hugo-guigo.github.io/misogyny-lens-ptbr">Open the demo →</a></span></p>
           </div>
         </li>
         <li class="reveal">
@@ -155,6 +162,40 @@
       <h2 class="giant sm"><span class="l1" data-pt>Trabalhos</span><span class="l1" data-en>Selected</span><span class="l2" data-pt>selecionados</span><span class="l2" data-en>work</span></h2>
 
       <div class="works">
+
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">occlusion · in your browser</text>
+              <g class="v-words">
+                <rect x="16" y="48" width="58" height="26" rx="4" class="w2"/><text x="22" y="66">Lugar</text>
+                <rect x="80" y="48" width="28" height="26" rx="4" class="w0"/><text x="86" y="66">de</text>
+                <rect x="114" y="48" width="70" height="26" rx="4" class="w3"/><text x="120" y="66">mulher</text>
+                <rect x="190" y="48" width="18" height="26" rx="4" class="w0"/><text x="196" y="66">é</text>
+                <rect x="214" y="48" width="28" height="26" rx="4" class="w0"/><text x="220" y="66">na</text>
+                <rect x="248" y="48" width="78" height="26" rx="4" class="w1"/><text x="254" y="66">cozinha</text>
+              </g>
+              <text x="16" y="112" class="v-small">P(traits)</text>
+              <rect x="100" y="100" width="280" height="14" class="v-bar-a"/>
+              <rect x="100" y="100" width="255" height="14" class="v-bar-o"/>
+              <text x="362" y="112" class="v-num-o">91%</text>
+              <text x="16" y="152" class="v-small">436 MB → 110 MB · uint8</text>
+              <text x="16" y="172" class="v-small">87.4% → 85.6% accuracy</text>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2026 · <span data-pt>projeto pessoal, a partir da IC</span><span data-en>personal project, from my undergrad research</span></p>
+            <h3>Misogyny Lens PT-BR</h3>
+            <p class="badge lime mono"><span data-pt>demo ao vivo · roda no navegador</span><span data-en>live demo · runs in the browser</span></p>
+            <p><span data-pt>Fiz fine-tuning do BERTimbau para detectar traços de misoginia, com controle de vazamento e escolha de modelo só na validação. No teste, o ensemble com o SVM do léxico chega a 88,0% de acurácia. Quantizei o modelo de 436 para 110 MB e ele roda inteiro no navegador com 85,6%, medido lá mesmo, com explicação palavra por palavra. A API com o ensemble completo vai em Docker, com testes e CI.</span><span data-en>I fine-tuned BERTimbau to detect misogyny traits, with leak control and model selection on validation only. On the test set, the ensemble with the lexicon SVM reaches 88.0% accuracy. I quantized the model from 436 to 110 MB and it runs entirely in the browser at 85.6%, measured there, with a word-by-word explanation. The full-ensemble API ships in Docker, with tests and CI.</span></p>
+            <ul class="tags mono"><li>BERTimbau</li><li>PyTorch</li><li>ONNX</li><li>Transformers.js</li><li>FastAPI</li><li>Docker</li></ul>
+            <p class="w-links">
+              <a class="pill" href="https://hugo-guigo.github.io/misogyny-lens-ptbr"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Demo</a>
+              <a class="pill" href="https://github.com/hugo-guigo/misogyny-lens-ptbr"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a>
+              <a class="pill" href="https://huggingface.co/hugo-guigo/bertimbau-misoginia-ptbr"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M9 10h.01M15 10h.01M9 15c1.5 1.5 4.5 1.5 6 0"/></svg><span data-pt>Modelo</span><span data-en>Model</span></a>
+            </p>
+          </div>
+        </article>
 
         <article class="work reveal">
           <figure class="viz" aria-hidden="true">

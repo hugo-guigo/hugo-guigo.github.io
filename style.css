@@ -362,3 +362,10 @@ svg { display: block; }
   .js .reveal { opacity: 1; transform: none; }
   .v-rate { stroke-dashoffset: 0; }
 }
+.v-words rect.w0 { fill: rgba(200, 245, 58, 0.15); }
+.v-words rect.w1 { fill: rgba(255, 106, 43, 0.3); }
+.v-words rect.w2 { fill: rgba(255, 106, 43, 0.45); }
+.v-words rect.w3 { fill: var(--orange); }
+.v-words text { fill: var(--ink); font-size: 13px; }
+.v-bar-o { fill: var(--orange); }
+.v-num-o { fill: var(--orange); font-size: 12px; font-weight: 700; }
