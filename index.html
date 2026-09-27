@@ -245,7 +245,7 @@
             </svg>
           </figure>
           <div class="w-body">
-            <p class="w-meta mono">2026 · CEIA / UFG</p>
+            <p class="w-meta mono">2025–2026 · CEIA / UFG</p>
             <h3><span data-pt>Agente incorporado em tempo real em hardware embarcado</span><span data-en>Real-time embodied agent on embedded hardware</span></h3>
             <p class="badge orange mono"><span data-pt>projeto com empresa parceira</span><span data-en>industry-partnered project</span></p>
             <p><span data-pt>Construí um agente que combina percepção facial contínua (detecção, identificação e expressão) com geração periódica de um modelo pequeno de visão e linguagem (sVLM), no mesmo acelerador embarcado. Caracterizei a disputa de GPU entre percepção e geração e entreguei um harness de benchmark reprodutível.</span><span data-en>I built an agent that combines continuous face perception (detection, identification and expression) with periodic generation from a small vision-language model (sVLM), on the same embedded accelerator. I characterized GPU contention between perception and generation and delivered a reproducible benchmark harness.</span></p>
@@ -328,6 +328,36 @@
           </div>
         </article>
 
+        <!-- Mini-NET: projeto em dupla; parte do Hugo = router.py + transporte.py (ver commits) -->
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">stack <tspan class="v-dim">over UDP</tspan></text>
+              <g class="v-stack">
+                <rect x="16" y="42" width="170" height="26" rx="4"/><text x="28" y="60">app · JSON</text>
+                <rect x="16" y="74" width="170" height="26" rx="4" class="hl"/><text x="28" y="92" class="hl-t">transport · stop&amp;wait</text>
+                <rect x="16" y="106" width="170" height="26" rx="4"/><text x="28" y="124">network · TTL</text>
+                <rect x="16" y="138" width="170" height="26" rx="4"/><text x="28" y="156">link · CRC32</text>
+              </g>
+              <g class="v-node"><rect x="214" y="42" width="100" height="28" rx="6"/><text x="226" y="61">client</text></g>
+              <g class="v-node hl"><rect x="214" y="89" width="100" height="28" rx="6"/><text x="226" y="108">router</text></g>
+              <g class="v-node"><rect x="214" y="136" width="100" height="28" rx="6"/><text x="226" y="155">server</text></g>
+              <path class="v-link" d="M264 70 L264 89"/>
+              <path class="v-link" d="M264 117 L264 136"/>
+              <text x="324" y="100" class="v-small">loss 20%</text>
+              <text x="324" y="114" class="v-small">corrupt 20%</text>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2026 · <span data-pt>Projeto Integrador de Redes, UFG</span><span data-en>Networking capstone course, UFG</span></p>
+            <h3>Mini-NET</h3>
+            <p class="badge lime mono"><span data-pt>redes · em dupla</span><span data-en>networking · pair project</span></p>
+            <p><span data-pt>Chat em Python sobre uma pilha de protocolos própria em cima de UDP, feito em dupla com Nicole Cabral Lopes Dantas. A pilha tem aplicação em JSON, transporte Stop-and-Wait (ACK, timeout, sequência 0/1), rede com endereços virtuais e TTL e enlace com MAC e CRC32, sobre um canal que perde 20% e corrompe 20% dos quadros. Minha parte: escrevi o roteador, com tabela de roteamento estática e decremento de TTL, e reescrevi grande parte da camada de transporte (Stop-and-Wait e retransmissão).</span><span data-en>A Python chat running on a custom protocol stack over UDP, built as a pair project with Nicole Cabral Lopes Dantas. The stack has a JSON application layer, Stop-and-Wait transport (ACK, timeout, 0/1 sequence numbers), a network layer with virtual addresses and TTL, and a link layer with MAC and CRC32, over a channel that drops 20% and corrupts 20% of frames. My part: I wrote the router, with a static routing table and TTL decrement, and rewrote much of the transport layer (Stop-and-Wait and retransmission).</span></p>
+            <ul class="tags mono"><li>Python</li><li>UDP</li><li>sockets</li><li>CRC32</li><li>ARQ</li></ul>
+            <p class="w-links"><a class="pill" href="https://github.com/nicolecab/mini-net"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -365,17 +395,17 @@
       <h2 class="giant sm"><span class="l1" data-pt>Trajetória</span><span class="l1" data-en>Trajectory</span><span class="l2" data-pt>na UFG</span><span class="l2" data-en>at UFG</span></h2>
       <ol class="timeline">
         <li class="reveal">
-          <div class="t-head"><h3><span data-pt>Pesquisador de Machine Learning</span><span data-en>Machine Learning Researcher</span></h3><span class="mono t-date">2026</span></div>
+          <div class="t-head"><h3><span data-pt>Pesquisador de Machine Learning</span><span data-en>Machine Learning Researcher</span></h3><span class="mono t-date"><span data-pt>nov 2025 – atual</span><span data-en>Nov 2025 – present</span></span></div>
           <p class="t-org">CEIA · <span data-pt>Centro de Excelência em IA, UFG</span><span data-en>Center of Excellence in AI, UFG</span></p>
           <p><span data-pt>Projeto de pesquisa com empresa parceira: agentes em tempo real em hardware embarcado.</span><span data-en>Industry-partnered research project: real-time agents on embedded hardware.</span></p>
         </li>
         <li class="reveal">
-          <div class="t-head"><h3><span data-pt>Pesquisa em redes para cloud gaming</span><span data-en>Networking research for cloud gaming</span></h3><span class="mono t-date">2026</span></div>
+          <div class="t-head"><h3><span data-pt>Pesquisa em redes para cloud gaming</span><span data-en>Networking research for cloud gaming</span></h3><span class="mono t-date"><span data-pt>jan 2026 – atual</span><span data-en>Jan 2026 – present</span></span></div>
           <p class="t-org">dcomp-leris · UFG</p>
           <p><span data-pt>Transportes de mídia, controle de congestionamento e métricas de qualidade de vídeo.</span><span data-en>Media transports, congestion control and video quality metrics.</span></p>
         </li>
         <li class="reveal">
-          <div class="t-head"><h3><span data-pt>Iniciação Científica em PLN</span><span data-en>Undergraduate research in NLP</span></h3><span class="mono t-date"><span data-pt>set 2025 – ago 2026</span><span data-en>Sep 2025 – Aug 2026</span></span></div>
+          <div class="t-head"><h3><span data-pt>Iniciação Científica em PLN</span><span data-en>Undergraduate research in NLP</span></h3><span class="mono t-date"><span data-pt>set 2025 – set 2026</span><span data-en>Sep 2025 – Sep 2026</span></span></div>
           <p class="t-org"><span data-pt>Instituto de Informática, UFG · Orientadora: Profa. Dra. Deborah S. A. Fernandes</span><span data-en>Institute of Informatics, UFG · Advisor: Prof. Deborah S. A. Fernandes</span></p>
           <p><span data-pt>Léxico e classificadores para detectar misoginia em português.</span><span data-en>Lexicon and classifiers for detecting misogyny in Portuguese.</span></p>
         </li>
