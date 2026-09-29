@@ -89,7 +89,7 @@
       <div class="stats">
         <div><p class="num">04</p><p class="lbl"><span data-pt>projetos de pesquisa<br>na UFG</span><span data-en>research projects<br>at UFG</span></p></div>
         <div><p class="num">02</p><p class="lbl"><span data-pt>artigos · 1 aceito<br>na ACM MM, 1 em avaliação</span><span data-en>papers · 1 accepted<br>at ACM MM, 1 under review</span></p></div>
-        <div><p class="num">05</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
+        <div><p class="num">06</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
       </div>
 
       <div class="tiles">
@@ -169,6 +169,34 @@
       <h2 class="giant sm"><span class="l1" data-pt>Trabalhos</span><span class="l1" data-en>Selected</span><span class="l2" data-pt>selecionados</span><span class="l2" data-en>work</span></h2>
 
       <div class="works">
+
+        <!-- Carteira KYC: primeira fatia, em construção; sem deploy e sem a parte de carteira ainda -->
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">kyc <tspan class="v-dim">full stack</tspan></text>
+              <g class="v-node"><rect x="16" y="66" width="74" height="28" rx="6"/><text x="28" y="85">cliente</text></g>
+              <g class="v-node hl"><rect x="114" y="66" width="86" height="28" rx="6"/><text x="126" y="85">pendente</text></g>
+              <path class="v-link" d="M90 80 L114 80"/>
+              <path class="v-link" d="M200 80 C214 80 214 58 228 58"/>
+              <path class="v-link" d="M200 80 C214 80 214 102 228 102"/>
+              <g class="v-stack">
+                <rect x="228" y="46" width="156" height="22" rx="4"/><text x="238" y="62">aprovada</text>
+                <rect x="228" y="90" width="156" height="22" rx="4"/><text x="238" y="106">recusada + motivo</text>
+                <rect x="16" y="128" width="368" height="22" rx="4" class="hl"/><text x="26" y="144" class="hl-t">audit log · insert-only (Postgres trigger)</text>
+              </g>
+              <text x="16" y="176" class="v-small">React + TS · Django · Postgres · 34 tests</text>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2026 · <span data-pt>projeto pessoal</span><span data-en>personal project</span></p>
+            <h3>Carteira KYC</h3>
+            <p class="badge orange mono"><span data-pt>em construção · full stack</span><span data-en>work in progress · full stack</span></p>
+            <p><span data-pt>App full stack de uma fintech fictícia: o cliente envia os dados para verificação de identidade, um operador aprova ou recusa e o compliance audita. Django REST Framework e PostgreSQL no backend, React com TypeScript no frontend. Regras garantidas no banco (índice único parcial e trilha de auditoria que só aceita inserção), autorização por papel testada e 34 testes, incluindo um de ponta a ponta com Playwright, no GitHub Actions. Ainda sem deploy e sem a parte de carteira.</span><span data-en>A full-stack app for a fictional fintech: the customer submits identity verification data, an operator approves or rejects it and compliance audits the trail. Django REST Framework and PostgreSQL on the backend, React with TypeScript on the frontend. Rules enforced by the database (a partial unique index and an insert-only audit log), tested role-based authorization and 34 tests, including a Playwright end-to-end test, on GitHub Actions. Not deployed yet, and the wallet part is still to come.</span></p>
+            <ul class="tags mono"><li>React</li><li>TypeScript</li><li>Django</li><li>PostgreSQL</li><li>Playwright</li></ul>
+            <p class="w-links"><a class="pill" href="https://github.com/hugo-guigo/carteira-kyc"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
+          </div>
+        </article>
 
         <!-- Triagem n8n + LLM: sem demo ao vivo (roda local com Docker Compose); números do conjunto pequeno e fictício -->
         <article class="work reveal">
