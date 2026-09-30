@@ -89,7 +89,7 @@
       <div class="stats">
         <div><p class="num">04</p><p class="lbl"><span data-pt>projetos de pesquisa<br>na UFG</span><span data-en>research projects<br>at UFG</span></p></div>
         <div><p class="num">02</p><p class="lbl"><span data-pt>artigos · 1 aceito<br>na ACM MM, 1 em avaliação</span><span data-en>papers · 1 accepted<br>at ACM MM, 1 under review</span></p></div>
-        <div><p class="num">06</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
+        <div><p class="num">07</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
       </div>
 
       <div class="tiles">
@@ -116,6 +116,13 @@
           <div>
             <p class="n-title"><span data-pt>ACM Multimedia 2026, Rio de Janeiro</span><span data-en>ACM Multimedia 2026, Rio de Janeiro</span></p>
             <p><span data-pt>Apresento o artigo CGReplay++ como autor apresentador (10 a 14 de novembro).</span><span data-en>Presenting the CGReplay++ paper as presenting author (Nov 10–14).</span></p>
+          </div>
+        </li>
+        <li class="reveal">
+          <time class="mono">2026.09</time>
+          <div>
+            <p class="n-title"><span data-pt>Publiquei o assistente do regulamento da UFG</span><span data-en>Published the UFG regulations assistant</span></p>
+            <p><span data-pt>RAG com pgvector e agente com tool calling, avaliado com perguntas anotadas e no ar no Azure. <a class="inline" href="https://ca-rag-ufg.kindpond-1fdbf9ec.northcentralus.azurecontainerapps.io">Abrir a demo →</a></span><span data-en>RAG with pgvector and a tool-calling agent, evaluated on labeled questions and live on Azure. <a class="inline" href="https://ca-rag-ufg.kindpond-1fdbf9ec.northcentralus.azurecontainerapps.io">Open the demo →</a></span></p>
           </div>
         </li>
         <li class="reveal">
@@ -169,6 +176,35 @@
       <h2 class="giant sm"><span class="l1" data-pt>Trabalhos</span><span class="l1" data-en>Selected</span><span class="l2" data-pt>selecionados</span><span class="l2" data-en>work</span></h2>
 
       <div class="works">
+
+        <!-- Assistente do regulamento da UFG (rag-ufg): RAG + agente, demo no Azure; números do conjunto de avaliação e do de teste -->
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">rag <tspan class="v-dim">+ agent</tspan></text>
+              <g class="v-node"><rect x="16" y="76" width="84" height="28" rx="6"/><text x="28" y="95">pergunta</text></g>
+              <g class="v-node hl"><rect x="124" y="76" width="86" height="28" rx="6"/><text x="136" y="95">agente</text></g>
+              <path class="v-link" d="M100 90 L124 90"/>
+              <path class="v-link" d="M210 90 C224 90 224 58 238 58"/>
+              <path class="v-link" d="M210 90 C224 90 224 90 238 90"/>
+              <path class="v-link" d="M210 90 C224 90 224 122 238 122"/>
+              <g class="v-stack">
+                <rect x="238" y="46" width="146" height="22" rx="4"/><text x="248" y="62">RGCG · pgvector</text>
+                <rect x="238" y="78" width="146" height="22" rx="4"/><text x="248" y="94">calendário · SQL</text>
+                <rect x="238" y="110" width="146" height="22" rx="4" class="hl"/><text x="248" y="126" class="hl-t">resposta + fontes</text>
+              </g>
+              <text x="16" y="172" class="v-small">recall@5 88% dev · 43% test · Azure</text>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2026 · <span data-pt>projeto pessoal</span><span data-en>personal project</span></p>
+            <h3><span data-pt>Assistente do regulamento da UFG</span><span data-en>UFG regulations assistant</span></h3>
+            <p class="badge lime mono"><span data-pt>RAG · agente · demo ao vivo</span><span data-en>RAG · agent · live demo</span></p>
+            <p><span data-pt>Responde perguntas sobre o regulamento e o calendário acadêmico da UFG citando as fontes. Busca vetorial no PostgreSQL com pgvector e um agente com tool calling que escolhe entre o regulamento e o calendário, com limite de passos e tratamento de erro das ferramentas. Avaliado com 50 perguntas anotadas e um juiz LLM revisado à mão: dividir o texto por artigo subiu o recall@5 de 68% para 88%. Num conjunto de teste separado, com perguntas em linguagem de aluno, caiu para 43%, e a limitação está documentada. API em FastAPI no Azure Container Apps, infraestrutura em Bicep e deploy pelo GitHub Actions via OIDC.</span><span data-en>Answers questions about UFG's regulations and academic calendar with cited sources. Vector search in PostgreSQL with pgvector and a tool-calling agent that chooses between the regulations and the calendar, with a step limit and tool error handling. Evaluated on 50 labeled questions with an LLM judge I spot-checked by hand: chunking by article raised recall@5 from 68% to 88%. On a separate test set written in student language it dropped to 43%, and the limitation is documented. FastAPI on Azure Container Apps, infrastructure in Bicep and deploys from GitHub Actions via OIDC.</span></p>
+            <ul class="tags mono"><li>RAG</li><li>pgvector</li><li>LLM</li><li>FastAPI</li><li>Azure</li><li>pytest</li></ul>
+            <p class="w-links"><a class="pill" href="https://ca-rag-ufg.kindpond-1fdbf9ec.northcentralus.azurecontainerapps.io"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Demo</a> <a class="pill" href="https://github.com/hugo-guigo/rag-ufg"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
+          </div>
+        </article>
 
         <!-- Carteira KYC: primeira fatia, em construção; demo na AWS (Lambda) + GitHub Pages; sem a parte de carteira ainda -->
         <article class="work reveal">
