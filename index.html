@@ -121,6 +121,13 @@
         <li class="reveal">
           <time class="mono">2026.09</time>
           <div>
+            <p class="n-title"><span data-pt>Terminei a Carteira KYC</span><span data-en>Finished Carteira KYC</span></p>
+            <p><span data-pt>A carteira entrou: livro-razão em partidas dobradas, depósito e saque idempotentes e extrato medido com EXPLAIN ANALYZE. <a class="inline" href="https://hugo-guigo.github.io/carteira-kyc/">Abrir a demo →</a></span><span data-en>The wallet is in: a double-entry ledger, idempotent deposits and withdrawals, and a statement query measured with EXPLAIN ANALYZE. <a class="inline" href="https://hugo-guigo.github.io/carteira-kyc/">Open the demo →</a></span></p>
+          </div>
+        </li>
+        <li class="reveal">
+          <time class="mono">2026.09</time>
+          <div>
             <p class="n-title"><span data-pt>Publiquei o assistente do regulamento da UFG</span><span data-en>Published the UFG regulations assistant</span></p>
             <p><span data-pt>RAG com pgvector e agente com tool calling, avaliado com perguntas anotadas e no ar no Azure. <a class="inline" href="https://ca-rag-ufg.kindpond-1fdbf9ec.northcentralus.azurecontainerapps.io">Abrir a demo →</a></span><span data-en>RAG with pgvector and a tool-calling agent, evaluated on labeled questions and live on Azure. <a class="inline" href="https://ca-rag-ufg.kindpond-1fdbf9ec.northcentralus.azurecontainerapps.io">Open the demo →</a></span></p>
           </div>
@@ -206,11 +213,11 @@
           </div>
         </article>
 
-        <!-- Carteira KYC: primeira fatia, em construção; demo na AWS (Lambda) + GitHub Pages; sem a parte de carteira ainda -->
+        <!-- Carteira KYC: pronto em 30/09/2026 (KYC + carteira em livro-razão); demo na AWS (Lambda) + GitHub Pages -->
         <article class="work reveal">
           <figure class="viz" aria-hidden="true">
             <svg viewBox="0 0 400 190">
-              <text x="16" y="28" class="v-lbl">kyc <tspan class="v-dim">full stack</tspan></text>
+              <text x="16" y="28" class="v-lbl">kyc + wallet <tspan class="v-dim">full stack</tspan></text>
               <g class="v-node"><rect x="16" y="66" width="74" height="28" rx="6"/><text x="28" y="85">cliente</text></g>
               <g class="v-node hl"><rect x="114" y="66" width="86" height="28" rx="6"/><text x="126" y="85">pendente</text></g>
               <path class="v-link" d="M90 80 L114 80"/>
@@ -219,16 +226,16 @@
               <g class="v-stack">
                 <rect x="228" y="46" width="156" height="22" rx="4"/><text x="238" y="62">aprovada</text>
                 <rect x="228" y="90" width="156" height="22" rx="4"/><text x="238" y="106">recusada + motivo</text>
-                <rect x="16" y="128" width="368" height="22" rx="4" class="hl"/><text x="26" y="144" class="hl-t">audit log · insert-only (Postgres trigger)</text>
+                <rect x="16" y="128" width="368" height="22" rx="4" class="hl"/><text x="26" y="144" class="hl-t">double-entry ledger · idempotent · insert-only</text>
               </g>
-              <text x="16" y="176" class="v-small">React + TS · Django · AWS Lambda · 34 tests</text>
+              <text x="16" y="176" class="v-small">React + TS · Django · AWS Lambda · 66 tests</text>
             </svg>
           </figure>
           <div class="w-body">
             <p class="w-meta mono">2026 · <span data-pt>projeto pessoal</span><span data-en>personal project</span></p>
             <h3>Carteira KYC</h3>
-            <p class="badge orange mono"><span data-pt>em construção · demo ao vivo</span><span data-en>work in progress · live demo</span></p>
-            <p><span data-pt>App full stack de uma fintech fictícia: o cliente envia os dados para verificação de identidade, um operador aprova ou recusa e o compliance audita. Django REST Framework e PostgreSQL no backend, React com TypeScript no frontend. Regras garantidas no banco (índice único parcial e trilha de auditoria que só aceita inserção), autorização por papel testada e 34 testes, incluindo um de ponta a ponta com Playwright, no GitHub Actions. API no AWS Lambda com S3 e SSM, infraestrutura em CloudFormation e deploy pelo GitHub Actions via OIDC; frontend no GitHub Pages. Ainda sem a parte de carteira.</span><span data-en>A full-stack app for a fictional fintech: the customer submits identity verification data, an operator approves or rejects it and compliance audits the trail. Django REST Framework and PostgreSQL on the backend, React with TypeScript on the frontend. Rules enforced by the database (a partial unique index and an insert-only audit log), tested role-based authorization and 34 tests, including a Playwright end-to-end test, on GitHub Actions. API on AWS Lambda with S3 and SSM, infrastructure in CloudFormation and deploys from GitHub Actions via OIDC; frontend on GitHub Pages. The wallet part is still to come.</span></p>
+            <p class="badge lime mono"><span data-pt>full stack · demo ao vivo</span><span data-en>full stack · live demo</span></p>
+            <p><span data-pt>App full stack de uma fintech fictícia: o cliente passa pela verificação de identidade, um operador aprova ou recusa, e o cliente aprovado deposita, saca e vê o extrato. Django REST Framework e PostgreSQL no backend, React com TypeScript no frontend. O saldo é um livro-razão em partidas dobradas, sem coluna de saldo, com as regras garantidas no próprio banco. Depósito e saque são idempotentes, e o saque nunca deixa saldo negativo, nem com duas requisições ao mesmo tempo; tudo isso tem teste. A consulta do extrato foi medida com EXPLAIN ANALYZE e caiu de 21 ms para 1 ms com um índice. São 66 testes, incluindo um de ponta a ponta com Playwright, no GitHub Actions. API no AWS Lambda com S3 e SSM, infraestrutura em CloudFormation e deploy via OIDC; frontend no GitHub Pages.</span><span data-en>A full-stack app for a fictional fintech: the customer goes through identity verification, an operator approves or rejects it, and the approved customer deposits, withdraws and reads a statement. Django REST Framework and PostgreSQL on the backend, React with TypeScript on the frontend. The balance is a double-entry ledger with no balance column, with its rules enforced by the database. Deposits and withdrawals are idempotent, and a withdrawal never overdraws the account, even under concurrent requests; all of it is tested. The statement query was measured with EXPLAIN ANALYZE and went from 21 ms to 1 ms with an index. 66 tests, including a Playwright end-to-end test, run on GitHub Actions. API on AWS Lambda with S3 and SSM, infrastructure in CloudFormation and deploys via OIDC; frontend on GitHub Pages.</span></p>
             <ul class="tags mono"><li>React</li><li>TypeScript</li><li>Django</li><li>PostgreSQL</li><li>AWS</li><li>Playwright</li></ul>
             <p class="w-links"><a class="pill" href="https://hugo-guigo.github.io/carteira-kyc/"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Demo</a> <a class="pill" href="https://github.com/hugo-guigo/carteira-kyc"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
           </div>
