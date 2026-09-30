@@ -195,6 +195,58 @@
   if (!reduced) requestAnimationFrame(spin);
   window.addEventListener("resize", render);
 
+  /* ---------- Contato: mensagem pronta ---------- */
+  var MAIL = "hugo.guilherme.paula@gmail.com";
+  var modelos = {
+    vaga: {
+      pt: ["Vaga na [empresa]: [cargo]",
+           "Oi, Hugo! Sou [seu nome], da [empresa].\n\nVi seu portfólio e acho que seu perfil combina com a vaga de [cargo] no nosso time. Você teria disponibilidade para uma conversa rápida nesta semana?\n\n[seu nome]\n[telefone ou LinkedIn]"],
+      en: ["Opening at [company]: [role]",
+           "Hi Hugo, I'm [your name] from [company].\n\nI saw your portfolio and think your profile fits our [role] opening. Would you be available for a quick call this week?\n\n[your name]\n[phone or LinkedIn]"]
+    },
+    conversa: {
+      pt: ["Conversa sobre [assunto]",
+           "Oi, Hugo! Sou [seu nome], [seu cargo] na [empresa].\n\nGostaria de conversar com você sobre [assunto]. Que dia e horário ficam bons para você?\n\n[seu nome]"],
+      en: ["Call about [topic]",
+           "Hi Hugo, I'm [your name], [your role] at [company].\n\nI'd like to talk with you about [topic]. What day and time work for you?\n\n[your name]"]
+    },
+    outro: {
+      pt: ["Contato pelo portfólio", "Oi, Hugo! Sou [seu nome].\n\n"],
+      en: ["Contact from your portfolio", "Hi Hugo, I'm [your name].\n\n"]
+    }
+  };
+  var msg = document.getElementById("c-msg");
+  var gmail = document.getElementById("c-gmail");
+  var mailto = document.getElementById("c-mailto");
+  var topics = document.querySelectorAll(".c-topic");
+  var topico = "vaga";
+  var editado = false;
+  function assunto() { return modelos[topico][isEn() ? "en" : "pt"][0]; }
+  function atualizaLinks() {
+    var s = encodeURIComponent(assunto()), b = encodeURIComponent(msg.value);
+    gmail.href = "https://mail.google.com/mail/?view=cm&fs=1&to=" + MAIL + "&su=" + s + "&body=" + b;
+    mailto.href = "mailto:" + MAIL + "?subject=" + s + "&body=" + b;
+  }
+  function preenche() {
+    msg.value = modelos[topico][isEn() ? "en" : "pt"][1];
+    editado = false;
+    atualizaLinks();
+  }
+  topics.forEach(function (bt) {
+    bt.addEventListener("click", function () {
+      if (editado && bt.dataset.topic !== topico &&
+          !window.confirm(isEn() ? "Replace the text you wrote with this template?" : "Trocar o texto que você escreveu por este modelo?")) return;
+      topico = bt.dataset.topic;
+      topics.forEach(function (o) { o.setAttribute("aria-pressed", String(o === bt)); });
+      preenche();
+    });
+  });
+  msg.addEventListener("input", function () { editado = true; atualizaLinks(); });
+  document.getElementById("lang-toggle").addEventListener("click", function () {
+    if (editado) atualizaLinks(); else preenche();
+  });
+  preenche();
+
   /* ---------- Copiar email ---------- */
   var copyBtn = document.getElementById("copy-mail");
   copyBtn.addEventListener("click", function () {

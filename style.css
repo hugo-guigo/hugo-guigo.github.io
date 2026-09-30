@@ -329,6 +329,28 @@ svg { display: block; }
 .btn:hover { transform: translateY(-2px); border-color: var(--ink); }
 .btn.primary { background: var(--lime); border-color: var(--lime); color: #111; }
 .btn.ghost { background: transparent; }
+.c-compose { max-width: 42rem; margin-top: 2rem; }
+.c-step { display: block; font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin: 1.4rem 0 0.6rem; }
+.c-step:first-child { margin-top: 0; }
+.c-topics { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.c-topic {
+  padding: 0.5rem 0.95rem; border-radius: 999px; cursor: pointer;
+  font: 600 0.85rem var(--sans); color: var(--sub);
+  background: var(--surface); border: 1px solid var(--line);
+  transition: border-color 0.2s, color 0.2s;
+}
+.c-topic:hover { border-color: var(--ink); color: var(--ink); }
+.c-topic[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #111; }
+.c-msg {
+  display: block; width: 100%; resize: vertical; min-height: 10rem;
+  padding: 0.9rem 1rem; border-radius: 12px;
+  font: 0.95rem/1.55 var(--sans); color: var(--ink);
+  background: var(--surface); border: 1px solid var(--line);
+}
+.c-msg:focus { border-color: var(--lime); outline: none; }
+.c-compose .c-actions { margin-top: 0; }
+.c-direct { margin-top: 1rem; font-size: 0.85rem; color: var(--muted); overflow-wrap: anywhere; }
+.c-direct a { color: var(--sub); text-decoration: underline; text-underline-offset: 3px; }
 
 .footer {
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
