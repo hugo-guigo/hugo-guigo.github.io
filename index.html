@@ -88,7 +88,7 @@
 
       <div class="stats">
         <div><p class="num">04</p><p class="lbl"><span data-pt>projetos de pesquisa<br>na UFG</span><span data-en>research projects<br>at UFG</span></p></div>
-        <div><p class="num">02</p><p class="lbl"><span data-pt>artigos · 1 aceito<br>na ACM MM, 1 em avaliação</span><span data-en>papers · 1 accepted<br>at ACM MM, 1 under review</span></p></div>
+        <div><p class="num">01</p><p class="lbl"><span data-pt>artigo aceito<br>na ACM MM 2026</span><span data-en>paper accepted<br>at ACM MM 2026</span></p></div>
         <div><p class="num">07</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
       </div>
 
@@ -115,7 +115,7 @@
           <time class="mono">2026.11</time>
           <div>
             <p class="n-title"><span data-pt>ACM Multimedia 2026, Rio de Janeiro</span><span data-en>ACM Multimedia 2026, Rio de Janeiro</span></p>
-            <p><span data-pt>Apresento o artigo CGReplay++ como autor apresentador (10 a 14 de novembro).</span><span data-en>Presenting the CGReplay++ paper as presenting author (Nov 10–14).</span></p>
+            <p><span data-pt>Artigo CGReplay++ aceito, em coautoria com o grupo LERIS (UFSCar). Evento de 10 a 14 de novembro.</span><span data-en>CGReplay++ paper accepted, co-authored with the LERIS group (UFSCar). Conference held Nov 10–14.</span></p>
           </div>
         </li>
         <li class="reveal">
@@ -151,13 +151,6 @@
           <div>
             <p class="n-title"><span data-pt>Lancei a Congestion Control Arena</span><span data-en>Launched Congestion Control Arena</span></p>
             <p><span data-pt>Redes neurais aprendem controle de congestionamento por neuroevolução, ao vivo no navegador. <a class="inline" href="https://hugo-guigo.github.io/congestion-arena">Abrir a demo →</a></span><span data-en>Neural networks learn congestion control through neuroevolution, live in the browser. <a class="inline" href="https://hugo-guigo.github.io/congestion-arena">Open the demo →</a></span></p>
-          </div>
-        </li>
-        <li class="reveal">
-          <time class="mono">2026</time>
-          <div>
-            <p class="n-title"><span data-pt>Artigo submetido</span><span data-en>Paper submitted</span></p>
-            <p><span data-pt>Agentes de linguagem com percepção facial em tempo real sob contenção de acelerador. Em avaliação.</span><span data-en>Real-time face-aware language agents under accelerator contention. Under review.</span></p>
           </div>
         </li>
         <li class="reveal">
@@ -357,8 +350,10 @@
             <p class="w-meta mono">2025–2026 · CEIA / UFG</p>
             <h3><span data-pt>Agente incorporado em tempo real em hardware embarcado</span><span data-en>Real-time embodied agent on embedded hardware</span></h3>
             <p class="badge orange mono"><span data-pt>projeto com empresa parceira</span><span data-en>industry-partnered project</span></p>
-            <p><span data-pt>Construí um agente que combina percepção facial contínua (detecção, identificação e expressão) com geração periódica de um modelo pequeno de visão e linguagem (sVLM), no mesmo acelerador embarcado. Caracterizei a disputa de GPU entre percepção e geração e entreguei um harness de benchmark reprodutível.</span><span data-en>I built an agent that combines continuous face perception (detection, identification and expression) with periodic generation from a small vision-language model (sVLM), on the same embedded accelerator. I characterized GPU contention between perception and generation and delivered a reproducible benchmark harness.</span></p>
-            <ul class="tags mono"><li>Python</li><li>PyTorch</li><li>sVLM</li><li>Jetson</li><li>benchmarking</li></ul>
+            <p><span data-pt>Com o time do CEIA, construímos um agente que combina percepção facial contínua (detecção, identificação e expressão) com respostas periódicas de um modelo pequeno de visão e linguagem (sVLM), dividindo a mesma GPU embarcada. Minha parte principal foi o pipeline de percepção (YuNet, ArcFace, busca no Qdrant, YOLOv8) e o harness de benchmark, que mede latência, energia por resposta e quadros por segundo em 4 aceleradores com 4 sVLMs.</span><span data-en>With the CEIA team, we built an agent that combines continuous face perception (detection, identification and expression) with periodic responses from a small vision-language model (sVLM), sharing one embedded GPU. My main parts were the perception pipeline (YuNet, ArcFace, Qdrant search, YOLOv8) and the benchmark harness, which measures latency, energy per response and frames per second on 4 accelerators with 4 sVLMs.</span></p>
+            <p><span data-pt>Dois achados. Abaixo de um intervalo entre respostas que depende do hardware (cerca de 3 s no Jetson AGX Orin, menos de 1 s no DGX Spark), a geração domina a GPU; acima dele, a percepção domina. E GPU mais rápida não garante percepção estável: durante uma resposta, os Jetson perderam no máximo 4% dos quadros por segundo, o DGX Spark cerca de 30% e uma RTX 4060 de 8 GB cerca de 87%.</span><span data-en>Two findings. Below a hardware-specific interval between responses (about 3 s on the Jetson AGX Orin, under 1 s on the DGX Spark), generation dominates the GPU; above it, perception does. And a faster GPU does not guarantee stable perception: during a response, the Jetsons lost at most 4% of their frame rate, the DGX Spark about 30% and an 8 GB RTX 4060 about 87%.</span></p>
+            <p class="w-credit"><span data-pt>Trabalho em equipe com Gustavo Novack Viana Lima, Marcelo Henrique Alves Pereira Sobrinho, Gabrielle Siqueira Moreira Leão, Danilo Lourenço Macedo Dias, Carlos Eduardo Gonçalves de Oliveira e Telma Woerle de Lima Soares, sob supervisão do Prof. Ricardo Augusto Pereira Franco.</span><span data-en>Team work with Gustavo Novack Viana Lima, Marcelo Henrique Alves Pereira Sobrinho, Gabrielle Siqueira Moreira Leão, Danilo Lourenço Macedo Dias, Carlos Eduardo Gonçalves de Oliveira and Telma Woerle de Lima Soares, supervised by Prof. Ricardo Augusto Pereira Franco.</span></p>
+            <ul class="tags mono"><li>Python</li><li>sVLM</li><li>Jetson</li><li>Qdrant</li><li>ONNX</li><li>benchmarking</li></ul>
           </div>
         </article>
 
@@ -504,14 +499,9 @@
       <h2 class="giant sm"><span class="l1" data-pt>Publicações</span><span class="l1" data-en>Papers</span><span class="l2" data-pt>&amp; palestras</span><span class="l2" data-en>&amp; talks</span></h2>
       <div class="pubs">
         <article class="pub reveal">
-          <p class="p-venue mono"><span class="v-tag lime">ACM MM 2026</span><span class="v-state"><span data-pt>aceito · autor apresentador</span><span data-en>accepted · presenting author</span></span></p>
+          <p class="p-venue mono"><span class="v-tag lime">ACM MM 2026</span><span class="v-state"><span data-pt>aceito</span><span data-en>accepted</span></span></p>
           <h3>CGReplay++: Replaying Cloud Gaming Sessions to Evaluate UDP, QUIC, and SCReAM</h3>
           <p class="p-sub"><span data-pt>ACM Multimedia 2026, Rio de Janeiro, 10 a 14 de novembro</span><span data-en>ACM Multimedia 2026, Rio de Janeiro, Nov 10–14</span></p>
-        </article>
-        <article class="pub reveal">
-          <p class="p-venue mono"><span class="v-tag"><span data-pt>em avaliação</span><span data-en>under review</span></span></p>
-          <h3>Real-Time Face-Aware Language Agents Under Shared-Accelerator Contention</h3>
-          <p class="p-sub"><span data-pt>Submetido em 2026</span><span data-en>Submitted in 2026</span></p>
         </article>
         <article class="pub reveal">
           <p class="p-venue mono"><span class="v-tag orange"><span data-pt>palestra</span><span data-en>talk</span></span><span class="v-state">jul 2026</span></p>
