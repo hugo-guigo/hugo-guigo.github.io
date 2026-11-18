@@ -89,7 +89,7 @@
       <div class="stats">
         <div><p class="num">04</p><p class="lbl"><span data-pt>projetos de pesquisa<br>na UFG</span><span data-en>research projects<br>at UFG</span></p></div>
         <div><p class="num">01</p><p class="lbl"><span data-pt>artigo aceito<br>na ACM MM 2026</span><span data-en>paper accepted<br>at ACM MM 2026</span></p></div>
-        <div><p class="num">07</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
+        <div><p class="num">08</p><p class="lbl"><span data-pt>projetos open source<br>no meu GitHub</span><span data-en>open-source projects<br>on my GitHub</span></p></div>
       </div>
 
       <div class="tiles">
@@ -111,6 +111,13 @@
       <p class="kicker mono">TX-01 · <span data-pt>sinal recebido</span><span data-en>signal received</span></p>
       <h2 class="giant sm"><span class="l1" data-pt>Últimas</span><span class="l1" data-en>Latest</span><span class="l2" data-pt>novidades</span><span class="l2" data-en>news</span></h2>
       <ol class="news">
+        <li class="reveal">
+          <time class="mono">2026.11</time>
+          <div>
+            <p class="n-title"><span data-pt>Publiquei um processador distribuído de apostas</span><span data-en>Published a distributed wagering processor</span></p>
+            <p><span data-pt>TypeScript, NestJS, PostgreSQL e SQS: ledger imutável, idempotência, inbox e outbox, correto com 3 instâncias ao mesmo tempo e 197 testes. <a class="inline" href="https://github.com/hugo-guigo/wagering-processor">Ver no GitHub →</a></span><span data-en>TypeScript, NestJS, PostgreSQL and SQS: an immutable ledger, idempotency, inbox and outbox, correct with 3 instances at once and 197 tests. <a class="inline" href="https://github.com/hugo-guigo/wagering-processor">See it on GitHub →</a></span></p>
+          </div>
+        </li>
         <li class="reveal">
           <time class="mono">2026.11</time>
           <div>
@@ -231,6 +238,38 @@
             <p><span data-pt>App full stack de uma fintech fictícia: o cliente passa pela verificação de identidade, um operador aprova ou recusa, e o cliente aprovado deposita, saca e vê o extrato. Django REST Framework e PostgreSQL no backend, React com TypeScript no frontend. O saldo é um livro-razão em partidas dobradas, sem coluna de saldo, com as regras garantidas no próprio banco. Depósito e saque são idempotentes, e o saque nunca deixa saldo negativo, nem com duas requisições ao mesmo tempo; tudo isso tem teste. A consulta do extrato foi medida com EXPLAIN ANALYZE e caiu de 21 ms para 1 ms com um índice. São 66 testes, incluindo um de ponta a ponta com Playwright, no GitHub Actions. API no AWS Lambda com S3 e SSM, infraestrutura em CloudFormation e deploy via OIDC; frontend no GitHub Pages.</span><span data-en>A full-stack app for a fictional fintech: the customer goes through identity verification, an operator approves or rejects it, and the approved customer deposits, withdraws and reads a statement. Django REST Framework and PostgreSQL on the backend, React with TypeScript on the frontend. The balance is a double-entry ledger with no balance column, with its rules enforced by the database. Deposits and withdrawals are idempotent, and a withdrawal never overdraws the account, even under concurrent requests; all of it is tested. The statement query was measured with EXPLAIN ANALYZE and went from 21 ms to 1 ms with an index. 66 tests, including a Playwright end-to-end test, run on GitHub Actions. API on AWS Lambda with S3 and SSM, infrastructure in CloudFormation and deploys via OIDC; frontend on GitHub Pages.</span></p>
             <ul class="tags mono"><li>React</li><li>TypeScript</li><li>Django</li><li>PostgreSQL</li><li>AWS</li><li>Playwright</li></ul>
             <p class="w-links"><a class="pill" href="https://hugo-guigo.github.io/carteira-kyc/"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Demo</a> <a class="pill" href="https://github.com/hugo-guigo/carteira-kyc"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
+          </div>
+        </article>
+
+        <!-- Processador distribuído de apostas (wagering-processor): desafio técnico de processo seletivo, apresentado; sem demo (roda local com Docker Compose) -->
+        <article class="work reveal">
+          <figure class="viz" aria-hidden="true">
+            <svg viewBox="0 0 400 190">
+              <text x="16" y="28" class="v-lbl">wagering <tspan class="v-dim">distributed</tspan></text>
+              <g class="v-node"><rect x="16" y="48" width="78" height="28" rx="6"/><text x="28" y="67">HTTP</text></g>
+              <g class="v-node"><rect x="16" y="88" width="78" height="28" rx="6"/><text x="28" y="107">SQS FIFO</text></g>
+              <path class="v-link" d="M94 62 C106 62 106 74 118 74"/>
+              <path class="v-link" d="M94 102 C106 102 106 90 118 90"/>
+              <g class="v-stack">
+                <rect x="118" y="44" width="92" height="22" rx="4"/><text x="128" y="60">app-1</text>
+                <rect x="118" y="71" width="92" height="22" rx="4"/><text x="128" y="87">app-2</text>
+                <rect x="118" y="98" width="92" height="22" rx="4"/><text x="128" y="114">app-3</text>
+              </g>
+              <path class="v-link" d="M210 82 L236 82"/>
+              <g class="v-node hl"><rect x="236" y="68" width="148" height="28" rx="6"/><text x="248" y="87">lock per wallet</text></g>
+              <g class="v-stack">
+                <rect x="16" y="132" width="368" height="22" rx="4" class="hl"/><text x="26" y="148" class="hl-t">ledger · inbox · outbox in one SQL transaction</text>
+              </g>
+              <text x="16" y="178" class="v-small">197 tests · 3 instances · 0 balance≠ledger</text>
+            </svg>
+          </figure>
+          <div class="w-body">
+            <p class="w-meta mono">2026 · <span data-pt>desafio técnico</span><span data-en>take-home challenge</span></p>
+            <h3><span data-pt>Processador distribuído de apostas</span><span data-en>Distributed wagering processor</span></h3>
+            <p class="badge lime mono"><span data-pt>backend distribuído · TypeScript</span><span data-en>distributed backend · TypeScript</span></p>
+            <p><span data-pt>Desafio técnico de um processo seletivo: um serviço que processa apostas (BET, WIN, LOSS, REFUND e ROLLBACK) recebidas por HTTP e por fila SQS, e continua correto com mensagens duplicadas, fora de ordem e várias instâncias ao mesmo tempo. A wallet tem saldo materializado e ledger imutável, a idempotência fica no banco, e inbox, saldo, ledger e outbox são gravados na mesma transação SQL. Cada wallet tem lock pessimista, operações que chegam antes da referência esperam num worker com backoff, e há DLQ e desligamento limpo. São 197 testes contra PostgreSQL e SQS reais (emulado localmente), incluindo 3 processos ao mesmo tempo e um processo morto entre o commit e o ack. No teste de carga, 150 req/s com p95 de 359 ms e zero divergências entre saldo e ledger; o atraso da outbox chegou a 14,6 s e está documentado como limitação. Feito com Claude Code, no fluxo de especificação, execução e revisão.</span><span data-en>A take-home challenge from a hiring process: a service that processes bets (BET, WIN, LOSS, REFUND and ROLLBACK) arriving over HTTP and an SQS queue, and stays correct with duplicated and out-of-order messages and several instances at once. The wallet keeps a materialized balance and an immutable ledger, idempotency lives in the database, and the inbox, balance, ledger and outbox are written in the same SQL transaction. Each wallet takes a pessimistic lock, operations that arrive before their reference wait in a worker with backoff, and there is a DLQ and graceful shutdown. 197 tests run against real PostgreSQL and SQS (emulated locally), including 3 processes at once and a process killed between commit and ack. Under load, 150 req/s with a p95 of 359 ms and zero balance-to-ledger mismatches; outbox lag peaked at 14.6 s and is documented as a limitation. Built with Claude Code in a spec, execute, review workflow.</span></p>
+            <ul class="tags mono"><li>TypeScript</li><li>NestJS</li><li>PostgreSQL</li><li>SQS</li><li>Bun</li><li>Docker</li></ul>
+            <p class="w-links"><a class="pill" href="https://github.com/hugo-guigo/wagering-processor"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.4-4-2-6-2.5m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12 12 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></p>
           </div>
         </article>
 
